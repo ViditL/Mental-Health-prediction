@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Result</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/design.css')}}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="op">
+<center>
+<section class="input-form">
+<font size="6">
+<nav>
+<a class="top-form">RESULT</a>
+</nav>
+</font> 
+<div class="input-form">
+<!-- <form autocomplete="on" action="/form_login" method="post" name="sform" style="opacity:1;" >
+<label>Username:</label>
+<input type="text" placeholder="admin" name="username"><br><br>
+<label>Password:</label>
+<input type="password" name="password" placeholder="********"><br><br>
+<button type="submit" name="submit" class="next action-button"> Login</button>
+<button type="reset">RESET</button>
+</form> -->
+<br><br>
+<h2>{{pred}}</h2>
+<br>
+<h4>Recommendations :</h4>
+<h4>{{inf}}</h4>
+<h4>{{inf1}}</h4>
+<h4>{{inf2}}</h4>
+<br>
+<button type="submit" name="submit" onclick="myFunction()">Log Out</button>
+</div>
+</section>
+</center>
+<script>
+function myFunction() {
+  location.replace("/")
+}
+</script>
+
+</body>
+
+</html>

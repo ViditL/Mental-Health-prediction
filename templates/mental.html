@@ -1,0 +1,239 @@
+<html>
+<head>
+<title>Predictor</title>
+<!-- <link rel="stylesheet" href="design.css"> -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/design.css')}}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<center>
+<section class="input-form">
+<font size="6" >
+<nav style=background: #f4f7f8; ><b>
+Enter your details here</b>
+
+
+</nav>
+</font> 
+<div class="input-form">
+<form action="{{ url_for('predict')}}" method="post" >
+		<label>Age<font color="red">*</font></label>
+		<input type="number" name="age_range" required list="agerange" min="0" max="3">
+		<datalist id="agerange">
+		<option value="0">0-20</option>
+		<option value="1">21-35</option>
+		<option value="2">36-65</option>
+		<option value="3">>65</option> 
+		</datalist>
+		
+		<label>Gender<font color="red">*</font></label>
+		<input type="number" name="gender" required list="gender" min="0" max="2">
+		<datalist id="gender">
+		<option value="0">Female</option>
+		<option value="1">Male</option>
+		<option value="2">Trans</option>
+		</datalist>
+		
+		<label>Are you self employed?<font color="red">*</font></label>
+		<input type="number" name="employed" required list="employ" min="0" max="1">
+		<datalist id="employ">
+		<option value="0">No</option>
+		<option value="1">Yes</option>
+		</datalist>
+		
+		<label>Is there a history of mental illness in your family?<font color="red">*</font></label>
+		<input type="number" name="family" required list="family" min="0" max="1">
+		<datalist id="family">
+		<option value="0">No</option>
+		<option value="1">Yes</option>
+		</datalist>
+		
+		<label>Do you feel that mental illness affects your work life?<font color="red">*</font></label>
+		<input type="number" name="work" required list="work" min="0" max="4">
+		<datalist id="work">
+		<option value="0">Don't know</option>
+		<option value="1">Never</option>
+		<option value="2">Often</option>
+		<option value="3">Rarely</option>
+		<option value="4">Sometimes</option>
+		</datalist>
+		
+		<label>Do you work remotely outside of an office?<font color="red">*</font></label>
+		<input type="number" name="remote" required list="remote" min="0" max="1">
+		<datalist id="remote">
+		<option value="0">No</option>
+		<option value="1">Yes</option>
+		</datalist>
+		
+		<label>Have you attended a wellness program?<font color="red">*</font></label>
+		<input type="number" name="wellness" required list="well" min="0" max="2">
+		<datalist id="well">
+		<option value="0">Don't know</option>
+		<option value="1">No</option>
+		<option value="2">Yes</option>
+		</datalist>
+		
+		<label>Have you seeked help from any psychologist?<font color="red">*</font></label>
+		<input type="number" name="help" required list="help" min="0" max="2">
+		<datalist id="help">
+		<option value="0">Don't know</option>
+		<option value="1">No</option>
+		<option value="2">Yes</option>
+		</datalist>
+		
+		<label>Do you believe that mental health has consequences on work life?<font color="red">*</font></label>
+		<input type="number" name="consquences" required list="consq" min="0" max="2">
+		<datalist id="consq">
+		<option value="0">Maybe</option>
+		<option value="1">No</option>
+		<option value="2">Yes</option>
+		</datalist>
+ 
+		<label>Are your coworkers supportive if someone has a mental illness?<font color="red">*</font></label>
+		<input type="number" name="coworkers" required list="coworker" min="0" max="2">
+		<datalist id="coworker">
+		<option value="0">No</option>
+		<option value="1">Some of them</option>
+		<option value="2">Yes</option>
+		</datalist>
+		
+		<label>Have you had a mental health disorder in the past?<font color="red">*</font></label>
+		<input type="number" name="past" required list="past" min="0" max="2">
+		<datalist id="past">
+		<option value="0">Maybe</option>
+		<option value="1">No</option>
+		<option value="2">Yes</option>
+		</datalist>
+		
+        <!-- <input type="text" name="test_score" placeholder="Test Score" required="required" />
+		<input type="text" name="interview_score1" placeholder="Interview Score" required="required" />
+		<input type="text" name="experience1" placeholder="Experience" required="required" />
+        <input type="text" name="test_score1" placeholder="Test Score" required="required" />
+		<input type="text" name="interview_score2" placeholder="Interview Score" required="required" /> -->
+        
+<!-- <label>Age<font color="red">*</font></label>
+<select required>
+  <option value="0">0-20</option>
+  <option value="1">21-35</option>
+  <option value="2">36-65</option>
+  <option value="3">>65</option> 
+</select><br><br>
+
+<label>Gender<font color="red">*</font></label>
+<select required>
+  <option value="1">male</option>
+  <option value="0">female</option>
+  <option value="2">trans</option>
+</select><br><br>
+  
+
+  
+<label>Is there a history of mental illness in your family?<font color="red">*</font></label>
+<select required>
+  <option value="1">Yes</option>
+  <option value="0">No</option>
+</select><br><br>
+
+<label>Do you feel that mental illness affects your work life?<font color="red">*</font></label>
+<select required>  
+  <option value="2">Often</option>
+  <option value="4">Sometimes</option>
+  <option value="3">Rarely</option>
+  <option value="1">Never</option>
+  <option value="0">Don't know</option>
+</select><br><br>
+<label>Have you seeked help from any psychologist?<font color="red">*</font></label>
+<select required>	
+  <option value="2">Yes</option>
+  <option value="1">No</option>
+  <option value="0">Don't know</option>
+</select><br><br>
+ <label>Have you had a mental health disorder in the past?<font color="red">*</font></label>
+<select required>
+  <option value="2">Yes</option>
+  <option value="1">No</option>
+  <option value="0">Maybe</option>
+</select><br><br> -->
+
+
+
+<!-- <label>Have you attended a wellness program?<font color="red">*</font></label>
+<select name="com" required>
+	<option ></option>
+  <option >Yes</option>
+  <option >No</option>
+  <option >Don't know</option>
+ </select><br><br>
+ 
+
+<label>How easy is it to obtain leave from work on mental health grounds?<font color="red">*</font></label>
+<select name="com" required>
+	<option ></option>
+  <option >Very easy</option>
+  <option >Somewhat easy</option>
+  <option >Somewhat difficult</option>
+  <option >Very difficult</option>
+  <option >Don't know</option>
+ </select><br><br>
+  
+<label>Do you believe that mental health has consequences on work life?<font color="red">*</font></label>
+<select name="com" required>
+	<option ></option>
+  <option >Yes</option>
+  <option >No</option>
+  <option >Maybe</option>
+ </select><br><br>
+ 
+<label>Are your coworkers supportive if someone has a mental illness?<font color="red">*</font></label>
+<select name="com" required>
+	<option ></option>
+  <option >Yes</option>
+  <option >No</option>
+  <option >Some of them</option>
+ </select><br><br>
+ 
+<label>Are your superiors supportive if someone has a mental illness?<font color="red">*</font></label>
+<select name="com" required>
+	<option ></option>
+  <option >Yes</option>
+  <option >No</option>
+  <option >Some of them</option>
+ </select><br><br>
+
+
+ <label>Are you self employed?<font color="red">*</font></label>
+<select name="com" required>
+	<option ></option>
+  <option >Yes</option>
+  <option >No</option>
+ </select><br><br>
+<label>Do you currently have a mental disorder?<font color="red">*</font></label>
+<select name="com" required>
+	<option ></option>
+  <option >Yes</option>
+  <option >No</option>
+  <option >Some of them</option>
+ </select><br><br>
+
+<label>Have you been diagnosed with a mental health condition by a medical professional?<font color="red">*</font></label>
+<select name="com" required>
+	<option ></option>
+  <option >Yes</option>
+  <option >No</option>
+  <option >Some of them</option>
+ </select><br><br>  -->
+
+<button type="submit" > SUBMIT</button>
+<button type="reset">RESET</button>
+</form>
+</div>
+
+      <br>
+        {{pred}}<br>
+
+ </div>
+</div>
+</section>
+</center>
+</body>
+</html>
